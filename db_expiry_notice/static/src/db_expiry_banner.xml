@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="db_expiry_notice.DbExpiryBanner" owl="1">
+        <div t-if="state.visible"
+             class="o_db_expiry_banner d-flex align-items-center justify-content-center"
+             t-att-class="{ 'o_db_expiry_shake': state.shaking }"
+             role="alert">
+            <i class="fa fa-exclamation-triangle fa-lg me-2 o_db_expiry_icon"/>
+            <span>
+                <strong>This database will expire in 7 days.</strong>
+                For more information, contact Odoo support on
+                <a href="mailto:support@odoo.com" class="o_db_expiry_link">support@odoo.com</a>.
+            </span>
+            <button type="button" class="btn btn-sm o_db_expiry_close ms-3"
+                    title="Hide (it will come back)" t-on-click="dismiss">
+                <i class="fa fa-times"/>
+            </button>
+        </div>
+    </t>
+</templates>

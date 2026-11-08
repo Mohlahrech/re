@@ -1,0 +1,65 @@
+.o_db_expiry_banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1060; // above form views/chatter, below modals backdrop interactions are untouched
+    padding: 0.6rem 3rem;
+    background: repeating-linear-gradient(
+        -45deg,
+        #c0392b,
+        #c0392b 20px,
+        #a93226 20px,
+        #a93226 40px
+    );
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.35);
+    animation: o_db_expiry_pulse 2s ease-in-out infinite;
+
+    .o_db_expiry_link {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .o_db_expiry_icon {
+        animation: o_db_expiry_blink 1s step-start infinite;
+    }
+
+    .o_db_expiry_close {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        line-height: 1;
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    &.o_db_expiry_shake {
+        animation: o_db_expiry_shake 0.5s ease-in-out 2;
+    }
+}
+
+// Keep the bottom of the app usable: reserve room under the content.
+.o_web_client {
+    padding-bottom: 2.75rem;
+}
+
+@keyframes o_db_expiry_pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+@keyframes o_db_expiry_blink {
+    50% { opacity: 0; }
+}
+
+@keyframes o_db_expiry_shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+}
